@@ -173,7 +173,7 @@ class TransformersRecognizer(EntityRecognizer):
 
         for res in ner_results:
             res["entity_group"] = self.__check_label_transformer(res["entity_group"])
-            if not res["entity_group"] or res["entity_group"] not in entities
+            if not res["entity_group"] or res["entity_group"] not in entities:
                 continue
 
             if res["entity_group"] == self.id_entity_name:
@@ -228,7 +228,7 @@ class TransformersRecognizer(EntityRecognizer):
 
         :param text: The text to run inference on
         :type text: str
-        :return: List of entity predictions on the word level
+        :return: List of  predictions on the word level
         :rtype: List[dict]
         """
         model_max_length = self.pipeline.tokenizer.model_max_length
